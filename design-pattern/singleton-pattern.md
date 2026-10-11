@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: docs
 title: Singleton Design Pattern in Java
 ---
 

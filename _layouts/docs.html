@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title and page.title != "Home" %}{{ page.title }} | {% endif %}Software-Dev-Interview-Prep</title>
+<meta name="description" content="Software developer interview preparation notes: design patterns, Java, Spring Boot, Kafka, system design and DSA.">
+<script>try{var t=localStorage.getItem("sdip-theme");if(!t){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="stylesheet" href="{{ '/assets/css/docs.css' | relative_url }}">
+</head>
+<body data-home="{{ page.home }}">
+<header class="top">
+  <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open navigation">☰</button>
+  <a class="brand" id="brand" href="{{ '/' | relative_url }}">Software-Dev Interview-Prep</a>
+  <button class="search-btn" id="searchBtn" type="button">Search topics <kbd>Ctrl K</kbd></button>
+  <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle dark mode">◐</button>
+</header>
+<div class="shell">
+  <nav class="side" id="sidebar" aria-label="Table of contents"></nav>
+  <div class="scrim" id="scrim"></div>
+  <div class="main">
+    <div class="col">
+      <article class="prose" id="content">
+{{ content }}
+      </article>
+    </div>
+    <aside class="toc" id="toc" aria-label="On this page"></aside>
+  </div>
+</div>
+<script src="{{ '/assets/js/nav.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/docs.js' | relative_url }}"></script>
+</body>
+</html>
