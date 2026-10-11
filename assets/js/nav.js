@@ -61,6 +61,7 @@ window.NAV = [
   { id: "cloud", emoji: "☁️", title: "Cloud and DevOps",
     desc: "Deployment and runtime knowledge.",
     pages: [
+      { title: "Docker essentials", desc: "Image, Container, Networks." },
       { title: "Kubernetes essentials", desc: "Pods, deployments, services, probes." },
       { title: "AWS core services", desc: "EC2, S3, SQS, SNS, RDS, IAM." }
     ]}
