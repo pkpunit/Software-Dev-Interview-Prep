@@ -101,6 +101,15 @@
       box.appendChild(b);
     });
 
+    // hide a hand-written "Table of Contents" section: the sidebar outline replaces it
+    $$("h2", art).forEach(function (h) {
+      if (/^table of contents$/i.test(h.textContent.trim())) {
+        var n = h.nextElementSibling;
+        if (n && (n.tagName === "UL" || n.tagName === "OL")) n.remove();
+        h.remove();
+      }
+    });
+
     // on this page
     var heads = $$("h2, h3", art);
     heads.forEach(function (h) { if (!h.id) h.id = slug(h.textContent); });

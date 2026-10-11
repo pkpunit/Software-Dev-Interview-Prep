@@ -9,7 +9,8 @@ window.NAV = [
     desc: "Creational, structural and behavioural patterns with Java examples.",
     pages: [
       { title: "Singleton", path: "design-pattern/singleton-pattern", desc: "Seven implementations, how they break, and the fixes." },
-      { title: "Factory Method and Abstract Factory", path: "design-pattern/factory-method-pattern", desc: "Hide object creation behind an interface." },
+      { title: "Factory Method", path: "design-pattern/factory-method-pattern", desc: "Let a subclass decide which object the parent creates." },
+      { title: "Abstract Factory", desc: "Create families of related objects." },
       { title: "Builder", desc: "Construct complex objects step by step." },
       { title: "Prototype", desc: "Clone objects instead of building from scratch." },
       { title: "Adapter and Decorator", desc: "Wrap objects to change or extend behaviour." },
@@ -61,7 +62,6 @@ window.NAV = [
   { id: "cloud", emoji: "☁️", title: "Cloud and DevOps",
     desc: "Deployment and runtime knowledge.",
     pages: [
-      { title: "Docker essentials", desc: "Image, Container, Networks." },
       { title: "Kubernetes essentials", desc: "Pods, deployments, services, probes." },
       { title: "AWS core services", desc: "EC2, S3, SQS, SNS, RDS, IAM." }
     ]}
