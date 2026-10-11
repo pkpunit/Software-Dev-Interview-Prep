@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software-Dev-Interview-Prep</title>
+<meta name="description" content="Interview preparation notes: design patterns, Java, Spring Boot, Kafka, system design, DSA and cloud.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f5f6f8;
+  --surface: #ffffff;
+  --ink: #172033;
+  --muted: #5b6577;
+  --line: #dde1e8;
+  --accent: #1f5fbf;
+  --accent-soft: #e6eefb;
+  --ready: #1f7a4d;
+  --ready-soft: #e3f3ea;
+  --planned: #7a6a2a;
+  --planned-soft: #f4efd9;
+  --shadow: 0 1px 2px rgba(23,32,51,.06);
+}
+:root[data-theme="dark"] {
+  --bg: #0f1420;
+  --surface: #161d2d;
+  --ink: #e6eaf2;
+  --muted: #9aa5ba;
+  --line: #263044;
+  --accent: #7aa7ff;
+  --accent-soft: #1b2944;
+  --ready: #5fd49b;
+  --ready-soft: #14302a;
+  --planned: #d6c46a;
+  --planned-soft: #2d2a16;
+  --shadow: none;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+.layout { display: grid; grid-template-columns: 272px minmax(0, 1fr); min-height: 100vh; }
+
+/* Sidebar */
+.side {
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+  padding: 28px 20px; border-right: 1px solid var(--line); background: var(--surface);
+}
+.brand { font-family: "Instrument Serif", Georgia, serif; font-size: 24px; line-height: 1.15; margin: 0 0 4px; }
+.brand-sub { color: var(--muted); font-size: 14px; margin: 0 0 22px; }
+.overall { margin-bottom: 22px; }
+.overall-text { font-size: 14px; display: flex; justify-content: space-between; margin-bottom: 6px; }
+.bar { height: 6px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.bar > i { display: block; height: 100%; width: 0; background: var(--ready); transition: width .3s ease; }
+.nav { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.nav a {
+  display: flex; justify-content: space-between; align-items: center; gap: 8px;
+  padding: 8px 10px; border-radius: 8px; text-decoration: none; font-size: 15px; color: var(--muted);
+}
+.nav a:hover { background: var(--bg); color: var(--ink); }
+.nav a.active { background: var(--accent-soft); color: var(--accent); font-weight: 600; }
+.nav .n { font-size: 13px; font-variant-numeric: tabular-nums; }
+.side-foot { margin-top: 22px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+button, .btn {
+  font: inherit; font-size: 14px; color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer;
+}
+button:hover { border-color: var(--accent); }
+
+/* Main */
+main { padding: 40px clamp(20px, 5vw, 64px) 96px; max-width: 920px; width: 100%; }
+h1 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: clamp(36px, 5vw, 52px); line-height: 1.05; margin: 0 0 10px; }
+.lede { color: var(--muted); max-width: 56ch; margin: 0 0 28px; }
+
+.search { position: relative; }
+.search input {
+  width: 100%; font: inherit; font-size: 17px; color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 12px; padding: 14px 52px 14px 16px; box-shadow: var(--shadow);
+}
+.search input::placeholder { color: var(--muted); }
+.search input:focus { outline: 2px solid var(--accent); outline-offset: 0; border-color: transparent; }
+.search kbd {
+  position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+  font: inherit; font-size: 13px; color: var(--muted); border: 1px solid var(--line); border-radius: 6px; padding: 1px 8px;
+}
+
+.chips { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0 36px; }
+.chip { border-radius: 99px; padding: 5px 14px; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+section { margin-bottom: 44px; scroll-margin-top: 20px; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 4px; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+.sec-head h2 { font-size: 22px; margin: 0; font-weight: 600; }
+.sec-meta { color: var(--muted); font-size: 14px; white-space: nowrap; }
+.sec-desc { color: var(--muted); font-size: 15px; margin: 10px 0 8px; }
+
+.rows { list-style: none; margin: 0; padding: 0; }
+.row {
+  display: grid; grid-template-columns: 24px minmax(0, 1fr) auto; gap: 14px; align-items: start;
+  padding: 14px 8px; border-bottom: 1px solid var(--line); border-radius: 0;
+}
+.row:hover { background: var(--surface); }
+.row input[type="checkbox"] { width: 18px; height: 18px; margin: 3px 0 0; accent-color: var(--ready); cursor: pointer; }
+.row input:disabled { cursor: not-allowed; opacity: .4; }
+.title { font-weight: 600; font-size: 17px; text-decoration: none; display: inline-block; }
+a.title:hover { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.row.planned .title { color: var(--muted); font-weight: 500; }
+.row.done .title { text-decoration: line-through; text-decoration-color: var(--muted); }
+.desc { display: block; color: var(--muted); font-size: 15px; margin-top: 2px; }
+.tag { font-size: 13px; padding: 2px 10px; border-radius: 99px; white-space: nowrap; }
+.tag.ready { background: var(--ready-soft); color: var(--ready); }
+.tag.planned { background: var(--planned-soft); color: var(--planned); }
+
+.empty { display: none; text-align: center; padding: 56px 0; color: var(--muted); }
+.empty.show { display: block; }
+.empty p { margin: 0 0 14px; }
+
+.to-top { position: fixed; right: 20px; bottom: 20px; display: none; box-shadow: var(--shadow); }
+.to-top.show { display: block; }
+
+/* Mobile: sidebar becomes a top strip */
+@media (max-width: 860px) {
+  .layout { display: block; }
+  .side { position: sticky; top: 0; z-index: 5; height: auto; padding: 10px 14px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .brand, .brand-sub, .overall, .side-foot { display: none; }
+  .nav { display: flex; overflow-x: auto; gap: 6px; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { white-space: nowrap; border: 1px solid var(--line); }
+  .nav .n { display: none; }
+  section { scroll-margin-top: 70px; }
+  .row { grid-template-columns: 24px minmax(0, 1fr); }
+  .row .tag { grid-column: 2; justify-self: start; }
+}
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="side">
+    <p class="brand">Software-Dev<br>Interview-Prep</p>
+    <p class="brand-sub">Notes I use to prepare.</p>
+    <div class="overall">
+      <div class="overall-text"><span>Studied</span><span id="overallText">0 of 0</span></div>
+      <div class="bar" role="progressbar" aria-label="Overall progress" aria-valuemin="0" aria-valuemax="100" id="overallBar"><i id="overallFill"></i></div>
+    </div>
+    <ul class="nav" id="nav"></ul>
+    <div class="side-foot">
+      <button id="themeBtn" type="button" aria-label="Toggle dark mode">Theme</button>
+      <button id="resetBtn" type="button">Reset progress</button>
+    </div>
+  </aside>
+
+  <main>
+    <h1>Software Dev Interview Prep</h1>
+    <p class="lede">Java, Spring Boot, Kafka, system design and DSA, with short notes and copy-paste examples. Tick a topic when you have studied it.</p>
+
+    <div class="search">
+      <input id="q" type="search" placeholder="Search topics, for example singleton or rebalancing" aria-label="Search topics" autocomplete="off">
+      <kbd aria-hidden="true">/</kbd>
+    </div>
+
+    <div class="chips" id="chips" role="group" aria-label="Filter topics">
+      <button class="chip" type="button" data-f="all" aria-pressed="true">All</button>
+      <button class="chip" type="button" data-f="ready" aria-pressed="false">Ready</button>
+      <button class="chip" type="button" data-f="planned" aria-pressed="false">Planned</button>
+      <button class="chip" type="button" data-f="todo" aria-pressed="false">Not studied</button>
+    </div>
+
+    <div id="content"></div>
+
+    <div class="empty" id="empty">
+      <p>No topics match your search.</p>
+      <button type="button" id="clearBtn">Clear search and filters</button>
+    </div>
+  </main>
+</div>
+
+<button class="to-top" id="toTop" type="button">Back to top</button>
+
+<script>
+/* ------------------------------------------------------------------
+   HOW TO ADD A PAGE
+   1. Put the page in the repo, e.g.  design-pattern/factory-pattern.md
+   2. In the list below, set  ready: true  and  path: "design-pattern/factory-pattern"
+   (path = file location without the extension, relative to this index)
+------------------------------------------------------------------- */
+const SECTIONS = [
+  { id: "design-patterns", title: "Design patterns", desc: "Creational, structural and behavioural patterns with Java examples.",
+    topics: [
+      { key: "singleton", title: "Singleton", desc: "Seven implementations, how they break, and the fixes.", ready: true, path: "design-pattern/singleton-pattern" },
+      { key: "factory", title: "Factory Method and Abstract Factory", desc: "Hide object creation behind an interface." },
+      { key: "builder", title: "Builder", desc: "Construct complex objects step by step." },
+      { key: "prototype", title: "Prototype", desc: "Clone objects instead of building from scratch." },
+      { key: "adapter", title: "Adapter and Decorator", desc: "Wrap objects to change or extend behaviour." },
+      { key: "observer", title: "Observer", desc: "Notify many listeners when state changes." },
+      { key: "strategy", title: "Strategy", desc: "Swap algorithms at runtime." }
+    ]},
+  { id: "java", title: "Java core", desc: "Language and JVM questions that come up in every backend round.",
+    topics: [
+      { key: "collections", title: "Collections and HashMap internals", desc: "Hashing, resizing, treeification, ConcurrentHashMap." },
+      { key: "concurrency", title: "Concurrency and executors", desc: "Threads, locks, volatile, CompletableFuture." },
+      { key: "jvm", title: "JVM memory and garbage collection", desc: "Heap layout, GC algorithms, tuning basics." },
+      { key: "streams", title: "Streams and lambdas", desc: "Pipelines, collectors, common pitfalls." },
+      { key: "modern-java", title: "Java 17 and 21 features", desc: "Records, sealed classes, virtual threads." }
+    ]},
+  { id: "spring", title: "Spring Boot", desc: "How the framework works under the hood.",
+    topics: [
+      { key: "ioc", title: "IoC and dependency injection", desc: "Containers, bean scopes, constructor injection." },
+      { key: "lifecycle", title: "Bean lifecycle", desc: "Creation, post-processing, destruction." },
+      { key: "autoconfig", title: "Auto-configuration", desc: "How starters and conditions wire beans." },
+      { key: "transactions", title: "Transactions", desc: "@Transactional, propagation, common traps." },
+      { key: "rest", title: "REST API design", desc: "Idempotency, versioning, error handling." }
+    ]},
+  { id: "kafka", title: "Kafka and messaging", desc: "Event-driven design for production and interviews.",
+    topics: [
+      { key: "architecture", title: "Kafka architecture", desc: "Brokers, topics, partitions, replication." },
+      { key: "producers", title: "Producers and consumers", desc: "Acks, batching, offsets, consumer groups." },
+      { key: "rebalancing", title: "Rebalancing and ordering", desc: "Why partitions rebalance and what it costs." },
+      { key: "exactly-once", title: "Delivery guarantees", desc: "At-least-once, at-most-once, exactly-once." }
+    ]},
+  { id: "system-design", title: "System design", desc: "Components and trade-offs for open-ended design rounds.",
+    topics: [
+      { key: "rate-limiter", title: "Rate limiter", desc: "Token bucket, sliding window, distributed counters." },
+      { key: "url-shortener", title: "URL shortener", desc: "ID generation, storage, caching." },
+      { key: "cache", title: "Distributed cache", desc: "Eviction, consistency, cache stampede." },
+      { key: "saga", title: "Saga and idempotency", desc: "Consistency across microservices." }
+    ]},
+  { id: "dsa", title: "Data structures and algorithms", desc: "Patterns for coding rounds, in optimal Java.",
+    topics: [
+      { key: "arrays", title: "Arrays and strings", desc: "Two pointers, sliding window, prefix sums." },
+      { key: "linked-list", title: "Linked lists", desc: "Fast and slow pointers, reversal, merging." },
+      { key: "trees", title: "Trees and graphs", desc: "DFS, BFS, topological sort." },
+      { key: "dp", title: "Dynamic programming", desc: "State, transitions, memoisation to tabulation." }
+    ]},
+  { id: "cloud", title: "Cloud and DevOps", desc: "Deployment and runtime knowledge.",
+    topics: [
+      { key: "k8s", title: "Kubernetes essentials", desc: "Pods, deployments, services, probes." },
+      { key: "aws", title: "AWS core services", desc: "EC2, S3, SQS, SNS, RDS, IAM." }
+    ]}
+];
+
+/* ---------------- state ---------------- */
+const STORE = "sdip-studied", THEME = "sdip-theme";
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const read = (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch (e) { return d; } };
+const write = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+
+let studied = new Set(read(STORE, []));
+let filter = "all";
+let query = "";
+
+const idOf = (s, t) => s.id + "/" + t.key;
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+/* ---------------- render ---------------- */
+function render() {
+  const q = query.trim().toLowerCase();
+  const content = $("#content");
+  const nav = $("#nav");
+  let html = "", navHtml = "", shown = 0;
+
+  SECTIONS.forEach(s => {
+    const list = s.topics.filter(t => {
+      const text = (t.title + " " + t.desc + " " + s.title).toLowerCase();
+      if (q && !text.includes(q)) return false;
+      const done = studied.has(idOf(s, t));
+      if (filter === "ready") return !!t.ready;
+      if (filter === "planned") return !t.ready;
+      if (filter === "todo") return !!t.ready && !done;
+      return true;
+    });
+    if (!list.length) return;
+    shown += list.length;
+
+    const readyAll = s.topics.filter(t => t.ready);
+    const doneAll = readyAll.filter(t => studied.has(idOf(s, t))).length;
+    const meta = readyAll.length ? doneAll + " of " + readyAll.length + " studied" : "Planned";
+
+    html += `<section id="${s.id}"><div class="sec-head"><h2>${esc(s.title)}</h2><span class="sec-meta">${meta}</span></div>
+      <p class="sec-desc">${esc(s.desc)}</p><ul class="rows">` +
+      list.map(t => {
+        const id = idOf(s, t), done = studied.has(id);
+        const title = t.ready
+          ? `<a class="title" href="${esc(t.path)}">${esc(t.title)}</a>`
+          : `<span class="title">${esc(t.title)}</span>`;
+        return `<li class="row ${t.ready ? "ready" : "planned"}${done ? " done" : ""}">
+          <input type="checkbox" data-id="${esc(id)}" ${done ? "checked" : ""} ${t.ready ? "" : "disabled"} aria-label="Mark ${esc(t.title)} as studied">
+          <div>${title}<span class="desc">${esc(t.desc)}</span></div>
+          <span class="tag ${t.ready ? "ready" : "planned"}">${t.ready ? "Ready" : "Planned"}</span>
+        </li>`;
+      }).join("") + `</ul></section>`;
+
+    navHtml += `<li><a href="#${s.id}" data-sec="${s.id}"><span>${esc(s.title)}</span><span class="n">${readyAll.length}/${s.topics.length}</span></a></li>`;
+  });
+
+  content.innerHTML = html;
+  nav.innerHTML = navHtml;
+  $("#empty").classList.toggle("show", shown === 0);
+  updateOverall();
+  observe();
+}
+
+function updateOverall() {
+  const ready = SECTIONS.flatMap(s => s.topics.filter(t => t.ready).map(t => idOf(s, t)));
+  const done = ready.filter(id => studied.has(id)).length;
+  const pct = ready.length ? Math.round(done / ready.length * 100) : 0;
+  $("#overallText").textContent = done + " of " + ready.length + " ready";
+  $("#overallFill").style.width = pct + "%";
+  $("#overallBar").setAttribute("aria-valuenow", pct);
+}
+
+/* ---------------- scroll spy ---------------- */
+let io;
+function observe() {
+  if (io) io.disconnect();
+  io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        $$(".nav a").forEach(a => a.classList.toggle("active", a.dataset.sec === e.target.id));
+        const act = $(".nav a.active");
+        if (act && window.innerWidth <= 860) act.scrollIntoView({ inline: "center", block: "nearest" });
+      }
+    });
+  }, { rootMargin: "-15% 0px -75% 0px" });
+  $$("section").forEach(s => io.observe(s));
+}
+
+/* ---------------- events ---------------- */
+$("#content").addEventListener("change", e => {
+  const id = e.target.dataset && e.target.dataset.id;
+  if (!id) return;
+  e.target.checked ? studied.add(id) : studied.delete(id);
+  write(STORE, [...studied]);
+  const y = window.scrollY;
+  render();
+  window.scrollTo(0, y);
+});
+
+$("#q").addEventListener("input", e => { query = e.target.value; render(); });
+
+$("#chips").addEventListener("click", e => {
+  const b = e.target.closest("[data-f]");
+  if (!b) return;
+  filter = b.dataset.f;
+  $$(".chip").forEach(c => c.setAttribute("aria-pressed", String(c === b)));
+  render();
+});
+
+function clearAll() {
+  query = ""; filter = "all"; $("#q").value = "";
+  $$(".chip").forEach(c => c.setAttribute("aria-pressed", String(c.dataset.f === "all")));
+  render();
+}
+$("#clearBtn").addEventListener("click", clearAll);
+
+$("#resetBtn").addEventListener("click", () => {
+  if (confirm("Clear all studied checkmarks on this browser?")) { studied = new Set(); write(STORE, []); render(); }
+});
+
+document.addEventListener("keydown", e => {
+  const typing = /input|textarea/i.test(document.activeElement.tagName);
+  if (e.key === "/" && !typing) { e.preventDefault(); $("#q").focus(); }
+  if (e.key === "Escape" && document.activeElement === $("#q")) { clearAll(); $("#q").blur(); }
+});
+
+const toTop = $("#toTop");
+window.addEventListener("scroll", () => toTop.classList.toggle("show", window.scrollY > 600), { passive: true });
+toTop.addEventListener("click", () => window.scrollTo({ top: 0 }));
+
+/* theme */
+function applyTheme(t) { document.documentElement.setAttribute("data-theme", t); }
+applyTheme(read(THEME, matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+$("#themeBtn").addEventListener("click", () => {
+  const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+  applyTheme(next); write(THEME, next);
+});
+
+render();
+</script>
+</body>
+</html>
