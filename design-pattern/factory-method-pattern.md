@@ -1,4 +1,5 @@
 ---
+layout: docs
 title: Factory Method Pattern
 ---
 
