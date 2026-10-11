@@ -9,7 +9,7 @@ window.NAV = [
     desc: "Creational, structural and behavioural patterns with Java examples.",
     pages: [
       { title: "Singleton", path: "design-pattern/singleton-pattern", desc: "Seven implementations, how they break, and the fixes." },
-      { title: "Factory Method and Abstract Factory", desc: "Hide object creation behind an interface." },
+      { title: "Factory Method and Abstract Factory", path: "design-pattern/factory-method-pattern"desc: "Hide object creation behind an interface." },
       { title: "Builder", desc: "Construct complex objects step by step." },
       { title: "Prototype", desc: "Clone objects instead of building from scratch." },
       { title: "Adapter and Decorator", desc: "Wrap objects to change or extend behaviour." },
