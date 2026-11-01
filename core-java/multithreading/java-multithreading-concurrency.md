@@ -1,3 +1,8 @@
+---
+layout: docs          
+title: Java Multithreading and Concurrency Interview Questions
+description: Thread, volatile, locks, deadlock, executors and fork-join, with detailed answers and code.
+---
 # Java Multithreading & Concurrency Interview Questions (Detailed)
 
 > Covers ~50 of the most-asked thread and concurrency questions. Each answer follows the same flow: **What → Why → How → Pitfalls → Interview one-liner**.
