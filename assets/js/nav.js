@@ -21,7 +21,7 @@ window.NAV = [
     desc: "Language and JVM questions that come up in every backend round.",
     pages: [
       { title: "Collections and HashMap internals", desc: "Hashing, resizing, treeification, ConcurrentHashMap." },
-      { title: "Concurrency and executors", desc: "Threads, locks, volatile, CompletableFuture." },
+      { title: "Concurrency and executors", path: "core-java/multithreading/java-multithreading-concurrency", desc: "Threads, locks, volatile, CompletableFuture." },
       { title: "JVM memory and garbage collection", desc: "Heap layout, GC algorithms, tuning basics." },
       { title: "Streams and lambdas", desc: "Pipelines, collectors, common pitfalls." },
       { title: "Java 17 and 21 features", desc: "Records, sealed classes, virtual threads." }
