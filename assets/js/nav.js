@@ -17,6 +17,11 @@ window.NAV = [
       { title: "Observer", desc: "Notify many listeners when state changes." },
       { title: "Strategy", desc: "Swap algorithms at runtime." }
     ]},
+     { id: "microservices", emoji: "☕", title: "Microservice pattern & architecture",
+    desc: "Microservice pattern & architecture ques that come up in every backend round.",
+    pages: [
+      { title: "CQRS", desc: "CQRS PAttern" }
+    ]},
   { id: "java", emoji: "☕", title: "Java core",
     desc: "Language and JVM questions that come up in every backend round.",
     pages: [
