@@ -20,7 +20,10 @@ window.NAV = [
      { id: "microservices", emoji: "☕", title: "Microservice pattern & architecture",
     desc: "Microservice pattern & architecture ques that come up in every backend round.",
     pages: [
-      { title: "CQRS", path: "microservices/cqrs-pattern", desc: "CQRS PAttern" }
+      { title: "CQRS", path: "microservices/cqrs-pattern", desc: "CQRS PAttern" },
+       { title: "SAGA", path: "microservices/saga-pattern", desc: "Saga PAttern" },
+       { title: "Strangler", path: "microservices/strangler-pattern", desc: "Strangler PAttern" },
+       { title: "Event Sourcing", path: "microservices/event-sourcing", desc: "Event Sourcing PAttern" }
     ]},
   { id: "java", emoji: "☕", title: "Java core",
     desc: "Language and JVM questions that come up in every backend round.",
