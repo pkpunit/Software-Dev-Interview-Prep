@@ -20,7 +20,7 @@ window.NAV = [
      { id: "microservices", emoji: "☕", title: "Microservice pattern & architecture",
     desc: "Microservice pattern & architecture ques that come up in every backend round.",
     pages: [
-      { title: "CQRS", desc: "CQRS PAttern" }
+      { title: "CQRS", path: "microservices/cqrs-pattern", desc: "CQRS PAttern" }
     ]},
   { id: "java", emoji: "☕", title: "Java core",
     desc: "Language and JVM questions that come up in every backend round.",
