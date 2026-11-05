@@ -1,3 +1,7 @@
+---
+layout: docs
+title: Microservices Design Pattern 
+---
 # CQRS — Command Query Responsibility Segregation
 
 > **One-liner:** Use **one model to change data (Command)** and a **different model to read data (Query)** — so each side can be designed, scaled and optimized for its own job.
