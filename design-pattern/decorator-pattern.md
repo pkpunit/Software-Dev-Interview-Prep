@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Decorator Design Pattern in Java
+---
+
 # Decorator Pattern
 
 **Category:** Structural (it is about *how objects are put together*)
