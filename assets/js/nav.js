@@ -10,14 +10,15 @@ window.NAV = [
     pages: [
       { title: "Singleton", path: "design-pattern/singleton-pattern", desc: "Seven implementations, how they break, and the fixes." },
       { title: "Factory Method", path: "design-pattern/factory-method-pattern", desc: "Let a subclass decide which object the parent creates." },
-      { title: "Abstract Factory", desc: "Create families of related objects." },
-      { title: "Builder", desc: "Construct complex objects step by step." },
-      { title: "Prototype", desc: "Clone objects instead of building from scratch." },
-      { title: "Adapter and Decorator", desc: "Wrap objects to change or extend behaviour." },
-      { title: "Observer", desc: "Notify many listeners when state changes." },
-      { title: "Strategy", desc: "Swap algorithms at runtime." }
+      { title: "Abstract Factory", path: "design-pattern/abstract-factory-pattern", desc: "Create families of related objects." },
+      { title: "Builder", path: "design-pattern/builder-pattern", desc: "Construct complex objects step by step." },
+      { title: "Prototype", path: "design-pattern/prototype-pattern", desc: "Clone objects instead of building from scratch." },
+      { title: "Adapter", path: "adapter-pattern/factory-method-pattern", desc: "Wrap objects to change or extend behaviour." },
+      { title: "Observer", path: "design-pattern/observer-pattern", desc: "Notify many listeners when state changes." },
+      { title: "Strategy", path: "design-pattern/strategy-pattern", desc: "Swap algorithms at runtime." },
+      { title: "Decorator", path: "design-pattern/decorator-pattern", desc: "Wrap an object inside another object." }
     ]},
-     { id: "microservices", emoji: "☕", title: "Microservice pattern & architecture",
+     { id: "microservices", emoji: "🧩", title: "Microservice pattern & architecture",
     desc: "Microservice pattern & architecture ques that come up in every backend round.",
     pages: [
       { title: "CQRS", path: "microservices/cqrs-pattern", desc: "CQRS PAttern" },
