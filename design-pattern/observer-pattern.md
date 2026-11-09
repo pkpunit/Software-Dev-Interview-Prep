@@ -1,3 +1,7 @@
+---
+layout: docs
+title: Observer Design Pattern in Java
+---
 # Observer Pattern
 
 **Category:** Behavioral (it is about *how objects behave and talk to each other*)
