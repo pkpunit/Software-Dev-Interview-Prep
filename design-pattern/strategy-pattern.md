@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Strategy Design Pattern in Java
+---
+
 # Strategy Pattern
 
 **Category:** Behavioral (it is about *how objects behave and talk to each other*)
