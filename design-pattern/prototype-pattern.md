@@ -1,3 +1,7 @@
+---
+layout: docs
+title: Prototype Design Pattern in Java
+---
 # Prototype Pattern
 
 **Category:** Creational (it is about *how objects get created*)
