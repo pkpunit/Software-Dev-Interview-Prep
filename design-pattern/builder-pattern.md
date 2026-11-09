@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Builder Design Pattern in Java
+---
+
 # Builder Pattern
 
 **Category:** Creational (it is about *how objects get created*)
