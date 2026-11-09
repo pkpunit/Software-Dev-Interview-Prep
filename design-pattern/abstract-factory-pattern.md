@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Abstract Factory Pattern in Java
+---
+
 # Abstract Factory Pattern
 
 **Category:** Creational (it is about *how objects get created*)
