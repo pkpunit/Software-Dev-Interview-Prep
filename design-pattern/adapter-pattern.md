@@ -1,3 +1,8 @@
+---
+layout: docs
+title: Adapter Design Pattern in Java
+---
+
 # Adapter Pattern
 
 **Category:** Structural (it is about *how objects are put together*)
