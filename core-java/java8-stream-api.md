@@ -1,3 +1,7 @@
+---
+layout: docs
+title: Java 8 and Streams API Question
+---
 # Java 8 Features and Stream API Interview Questions (Detailed)
 
 > One-stop revision file for Java 8 and the Stream API. It consolidates the Durga Sir *Java 8 New Features* PDF, igmguru, harp-lab (learning-zone), the devgenius *Java 8 Interview Questions* article, the Medium *Java 8 features* article and the commonly asked Stream API interview problems. Important questions follow **What → Why → How → Pitfalls → Interview one-liner**. The last big sections teach you **how to think** about unseen Stream problems (a pattern playbook plus solved problems).
