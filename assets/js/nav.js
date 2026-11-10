@@ -29,7 +29,7 @@ window.NAV = [
   { id: "java", emoji: "☕", title: "Java core",
     desc: "Language and JVM questions that come up in every backend round.",
     pages: [
-      { title: "Collections and HashMap internals", desc: "Hashing, resizing, treeification, ConcurrentHashMap." },
+      { title: "Collections and HashMap internals", path: "core-java/collections/collections", desc: "Hashing, resizing, treeification, ConcurrentHashMap." },
       { title: "Oops", path: "core-java/java-oops-interview-questions", desc: "Java OOPs Interview Questions and Answers." },
       { title: "Concurrency and executors", path: "core-java/multithreading/java-multithreading-concurrency", desc: "Threads, locks, volatile, CompletableFuture." },
       { title: "JVM memory and garbage collection", desc: "Heap layout, GC algorithms, tuning basics." },
