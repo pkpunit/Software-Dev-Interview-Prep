@@ -1,3 +1,7 @@
+---
+layout: docs          
+title: Collections Interview Questions
+---
 # Java Collections Framework Interview Questions (Detailed)
 
 > One-stop revision file for the Java Collections Framework. It consolidates the Durga Sir *Collections Framework* PDF, igmguru, Javarevisited, the harp-lab/learning-zone GitHub list and the commonly asked HashMap / Comparable / Comparator internals. Important questions follow **What → Why → How → Pitfalls → Interview one-liner**. Easy or less important questions get a short answer.
