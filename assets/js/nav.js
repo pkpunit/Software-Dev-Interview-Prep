@@ -39,11 +39,16 @@ window.NAV = [
   { id: "spring", emoji: "🍃", title: "Spring Boot",
     desc: "How the framework works under the hood.",
     pages: [
-      { title: "IoC and dependency injection", desc: "Containers, bean scopes, constructor injection." },
-      { title: "Bean lifecycle", desc: "Creation, post-processing, destruction." },
-      { title: "Auto-configuration", desc: "How starters and conditions wire beans." },
-      { title: "Transactions", desc: "@Transactional, propagation, common traps." },
-      { title: "REST API design", desc: "Idempotency, versioning, error handling." }
+      { title: "Springboot Core", path: "springboot/spring-boot-core", desc: "Springboot core." },
+      { title: "AOP", path: "springboot/spring-aop", desc: "AOP" },
+      { title: "Spring boot security", path: "springboot/spring-security", desc: "Springboot security" },
+      { title: "Transactions", path: "spring-boot-transactions", desc: "@Transactional, propagation, common traps." },
+      { title: "Spring boot rest", path: "springboot/spring-boot-rest-api", desc: "Spring boot rest api" },
+      { title: "Springboot microservices and kafka", path: "springboot/spring-boot-microservices-kafka", desc: "Springboot microservices" },
+      { title: "Springboot Testing", path: "springboot/spring-boot-testing", desc: "Springboot testing" },
+      { title: "Auto-configuration", path: "springboot/spring-boot-core", desc: "How starters and conditions wire beans." },
+      { title: "Transactions", path: "springboot/spring-boot-core", desc: "@Transactional, propagation, common traps." },
+      { title: "REST API design", path: "springboot/spring-boot-core", desc: "Idempotency, versioning, error handling." }
     ]},
   { id: "kafka", emoji: "📨", title: "Kafka and messaging",
     desc: "Event-driven design for production and interviews.",
